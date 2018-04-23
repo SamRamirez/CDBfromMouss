@@ -60,7 +60,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 	    http.authorizeRequests()
-	        .antMatchers("/", "/dashboard").permitAll()
+	        .antMatchers("/", "/dashboard", "/allComputers").permitAll()
 	        .antMatchers("/addComputer", "/editComputer").hasAnyRole("ADMIN", "USER")
 	        .and().formLogin().loginPage("/login").defaultSuccessUrl("/dashboard")
 	        .and().logout().logoutUrl("/logout").logoutSuccessUrl("/dashboard")
